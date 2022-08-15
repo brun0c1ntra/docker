@@ -1,0 +1,1 @@
+Docker image's samples for general development and testing purposes
