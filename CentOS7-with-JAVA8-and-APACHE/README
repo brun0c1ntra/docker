@@ -1,0 +1,8 @@
+docker build --rm --no-cache -t c7-systemd-on .
+
+docker run --privileged --name c7 -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 80:80 -d  c7-systemd-on
+
+docker exec -it c7 /bin/bash
+
+
+https://unix.stackexchange.com/questions/452249/docker-container-with-centos-7-and-systemd

@@ -1,0 +1,21 @@
+FROM centos/systemd
+
+#APACHE SERVICE
+RUN yum -y install httpd
+RUN yum clean all
+RUN systemctl enable httpd.service
+
+#SETUP JAVA 8
+RUN yum -y update
+RUN yum -y remove java
+RUN yum install -y \
+       java-1.8.0-openjdk \
+       java-1.8.0-openjdk-devel
+
+RUN yum install -y maven
+RUN yum install -y curl 
+RUN yum install -y unzip
+
+EXPOSE 80
+
+CMD ["/usr/sbin/init"]
