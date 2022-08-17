@@ -1,6 +1,6 @@
-docker build --rm --no-cache -t c7-systemd-on .
+docker build --rm --no-cache -t centos-systemd:7 .
 
-docker run --privileged --name c7 -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 80:80 -d  c7-systemd-on
+docker run --privileged --name CentOS7 -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 80:80 -d  centos-systemd:7
 
 docker exec -it c7 /bin/bash
 

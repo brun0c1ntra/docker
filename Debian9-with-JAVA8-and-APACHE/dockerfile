@@ -1,0 +1,21 @@
+#FROM jrei/systemd-debian:8
+FROM jrei/systemd-debian:9
+
+#APACHE SERVICE
+RUN apt-get update
+RUN apt-get -y upgrade
+
+RUN apt-get install -y init
+RUN apt-get clean all
+
+RUN apt-get -y install apache2 apache2-doc apache2-utils
+
+#JAVA SETUP
+RUN apt-get -y install default-jre
+RUN apt-get -y install maven
+RUN apt-get -y install curl 
+RUN apt-get -y install unzip
+
+EXPOSE 80
+
+CMD ["/usr/sbin/init"]

@@ -1,0 +1,5 @@
+docker build -t debian:9 .
+
+docker run -d --name debian9 --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 80:80 debian:9 /sbin/init
+
+docker exec -it debian9 /bin/bash
